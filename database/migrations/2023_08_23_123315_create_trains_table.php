@@ -12,21 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('trains', function (Blueprint $table) {
-
-
             $table->id();
             $table->string('company');
             $table->string('departure_station');
             $table->string('arrival_station');
-            $table->string('departure_station');
-            $table->timestamp('departure_time');
-            $table->timestamp('arrival_time');
-            $table->rand('train_id', 6);
-            $table->rand('train_coach', 2);
+            $table->time('departure_time');
+            $table->time('arrival_time');
+            $table->tinyInteger('train_id');
+            $table->tinyInteger('train_coach');
             $table->boolean('is_timely');
             $table->boolean('is_deleted');
-
-
             $table->timestamps();
         });
     }
